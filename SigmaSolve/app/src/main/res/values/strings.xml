@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SigmaSolve</string>
+    <string name="title_home">Home</string>
+    <string name="title_solver">Solver</string>
+    <string name="title_formula">Formulas</string>
+    <string name="title_calculator">Calculator</string>
+    <string name="title_bookmarks">Bookmarks</string>
+</resources>

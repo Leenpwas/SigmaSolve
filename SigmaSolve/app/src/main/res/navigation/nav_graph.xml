@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <!-- ── HOME ─────────────────────────────────────── -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.sigmasolve.app.ui.home.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_home_to_formula_detail"
+            app:destination="@id/navigation_formula_detail"/>
+
+    </fragment>
+
+    <!-- ── SOLVER ────────────────────────────────────── -->
+    <fragment
+        android:id="@+id/navigation_solver"
+        android:name="com.sigmasolve.app.ui.solver.SolverFragment"
+        android:label="Problem Solver">
+
+        <action
+            android:id="@+id/action_solver_to_detail"
+            app:destination="@id/navigation_solver_detail"/>
+
+    </fragment>
+
+    <!-- ── FORMULA LIBRARY ───────────────────────────── -->
+    <fragment
+        android:id="@+id/navigation_formula"
+        android:name="com.sigmasolve.app.ui.formula.FormulaLibraryFragment"
+        android:label="Formula Library">
+
+        <action
+            android:id="@+id/action_formula_to_detail"
+            app:destination="@id/navigation_formula_detail"/>
+
+    </fragment>
+
+    <!-- ── CALCULATOR ────────────────────────────────── -->
+    <fragment
+        android:id="@+id/navigation_calculator"
+        android:name="com.sigmasolve.app.ui.calculator.CalculatorFragment"
+        android:label="Calculator"/>
+
+    <!-- ── BOOKMARKS ─────────────────────────────────── -->
+    <fragment
+        android:id="@+id/navigation_bookmarks"
+        android:name="com.sigmasolve.app.ui.bookmarks.BookmarksFragment"
+        android:label="Bookmarks">
+
+        <action
+            android:id="@+id/action_bookmarks_to_formula_detail"
+            app:destination="@id/navigation_formula_detail"/>
+
+    </fragment>
+
+    <!-- ── ACTIVITY DESTINATIONS ──────────────────────── -->
+    <activity
+        android:id="@+id/navigation_formula_detail"
+        android:name="com.sigmasolve.app.ui.formula.FormulaDetailActivity"
+        android:label="Formula Detail"
+        tools:layout="@layout/activity_formula_detail"/>
+
+    <activity
+        android:id="@+id/navigation_solver_detail"
+        android:name="com.sigmasolve.app.ui.solver.SolverDetailActivity"
+        android:label="Problem Solver"
+        tools:layout="@layout/activity_solver_detail"/>
+
+</navigation>

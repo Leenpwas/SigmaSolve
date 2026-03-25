@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/title_home"/>
+
+    <item
+        android:id="@+id/navigation_solver"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/title_solver"/>
+
+    <item
+        android:id="@+id/navigation_formula"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/title_formula"/>
+
+    <item
+        android:id="@+id/navigation_calculator"
+        android:icon="@drawable/ic_calculator"
+        android:title="@string/title_calculator"/>
+
+    <item
+        android:id="@+id/navigation_bookmarks"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/title_bookmarks"/>
+
+</menu>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- ── DISPLAY & GRAPH ──────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.6"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="?attr/colorSurface">
+
+        <com.sigmasolve.app.ui.calculator.GraphView
+            android:id="@+id/graph_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="12dp"
+            android:background="?attr/colorSurfaceVariant"/>
+
+        <EditText
+            android:id="@+id/et_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Type expression..."
+            android:textSize="26sp"
+            android:textColor="?attr/colorOnSurface"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:textCursorDrawable="@null"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="= 0"
+            android:textSize="20sp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:gravity="start"
+            android:textStyle="bold|italic"/>
+    </LinearLayout>
+
+    <!-- ── KEYPAD TABS ──────────────────────────── -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_keypad"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="?attr/colorPrimary"
+        app:tabSelectedTextColor="?attr/colorPrimary"
+        app:tabTextColor="?attr/colorOnSurfaceVariant">
+        <com.google.android.material.tabs.TabItem android:text="Main"/>
+        <com.google.android.material.tabs.TabItem android:text="Func"/>
+        <com.google.android.material.tabs.TabItem android:text="Matrix"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- ── DYNAMIC KEYPAD ──────────────────────────── -->
+    <FrameLayout
+        android:id="@+id/keypad_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.2"
+        android:background="?attr/colorSurfaceVariant"
+        android:padding="4dp">
+
+        <!-- Main Keypad -->
+        <GridLayout
+            android:id="@+id/grid_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="5"
+            android:rowCount="5"
+            android:visibility="visible">
+
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_x"      android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="x"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_y"      android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="y"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_square" android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="a²"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_power"  android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="aᵇ"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_abs"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="|a|"/>
+
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn7"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="7"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn8"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="8"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn9"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="9"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_div"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="÷"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_back"   android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="⌫"/>
+
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn4"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="4"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn5"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="5"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn6"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="6"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_mul"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="×"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_sqrt"   android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="√"/>
+
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn1"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="1"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn2"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="2"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn3"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="3"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_sub"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="−"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_pi"     android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="π"/>
+
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn0"       android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="0"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_dot"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="."/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_comma"  android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag=","/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_add"    android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="+"/>
+            <include layout="@layout/calc_btn_desmos" android:id="@+id/btn_enter"  android:layout_width="0dp" android:layout_height="0dp" android:layout_columnWeight="1" android:layout_rowWeight="1" android:tag="ENTER"/>
+
+        </GridLayout>
+
+        <!-- Dynamic Grids -->
+        <GridLayout android:id="@+id/grid_func"   android:layout_width="match_parent" android:layout_height="match_parent" android:columnCount="4" android:rowCount="4" android:visibility="gone"/>
+        <GridLayout android:id="@+id/grid_matrix" android:layout_width="match_parent" android:layout_height="match_parent" android:columnCount="4" android:rowCount="4" android:visibility="gone"/>
+
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Sigma symbol Σ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,25 L78,25 L78,35 L50,54 L78,73 L78,83 L30,83 L30,73 L62,73 L36,54 L62,35 L30,35 Z"/>
+</vector>
